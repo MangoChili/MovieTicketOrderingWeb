@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {font-family: "Lato", sans-serif}.mySlides {display:none}
+    </style>
+    <script type="text/javascript">
+
+        function updateOutput(){
+            var form= document.getElementById("ticketInfo");
+            var out= form.elements["price"];
+            var outgst= form.elements["gst"];
+            var outpst= form.elements["pst"];
+            var outTotal=form.elements["totalprice"];
+            var out2=form.elements["adress"];
+            var num=parseInt(form.elements["quantity"].value);
+            out.value=parseFloat(num*10).toFixed(2);
+            var numprice=parseFloat(form.elements["price"].value);
+            outgst.value=parseFloat(numprice*5/100).toFixed(2);
+            outpst.value=parseFloat(numprice*8/100).toFixed(2);
+            var numgst=parseFloat(form.elements["gst"].value);
+            var numpst=parseFloat(form.elements["pst"].value);
+            outTotal.value=parseFloat(numprice+numgst+numpst).toFixed(2);
+
+            var theatre=form.elements["Theatre"].value;
+            switch(theatre)
+            {
+                case "Moon":
+                out2.value= "123 Creative Hway, Winnipeg MB, R2M 3J1";
+                break;
+                case "Star":
+                out2.value= "88 St.Mary Road, Winnipeg MB, R3T 2K3";
+                break;
+                case "Love":
+                out2.value= "15 St.Jame Street, Winnipeg MB, R5D 5P8";
+                break;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+<!--Navigation bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="../movie/movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+        <a href="../theatre/TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
+
+	<!--Page content -->
+	<div class="w3-content w3-padding-64" style="max-width:2000px;margin-top:46px">
+
+<fieldset>
+    <legend><h>&emsp;<b><ins>Ticket Information Confirmation:</ins></b></h></legend>
+    <b>Movie Name:</b> Geostorm<br><br>
+    <b>Date: </b><span id="date"></span><br>
+    <form id="ticketInfo" oninput="updateOutput()" action="payment.html" method="GET">
+        <b>Show Time: </b>
+        <select name="Show Time">
+                <option value="13:00" selected>13:00</option>
+                <option value="19:00">19:00</option>
+        </select><br><br>
+        <b>Theatre: </b>
+        <select name="Theatre" onchange="updateOutput()">
+                <option value="Moon" selected>Moon</option>
+                <option value="Star">Star</option>
+                <option value="Love">Love</option>
+        </select>
+        <span class="equals"><b> Address: </b></span>
+        <output name="adress" for="Theatre">123 Creative Hway, Winnipeg MB, R2M 3J1</output><br><br>
+        <b>Please select the amount of tickets:</b><br><br>
+        <b>Quantity:</b>  <input type="number" name="quantity" min="1" max="50" value="1"> <br>
+
+        <span class="equals">Subtotal: </span>
+        CAD <output name="price" for="quantity">10</output><br>
+        <span class="equals">GST: </span>
+        CAD <output name="gst" for="price">0.50</output><br>
+        <span class="equals">PST: </span>
+        CAD <output name="pst" for="price">0.80</output><br>
+        <span class="equals"><b>Total:</b> </span>
+        CAD <output name="totalprice" for="price gst pst">11.30</output><br><br>
+
+        <input type="submit" value="Confirm and make payment"><br><br>
+
+    </form>
+    <!--Go back button-->
+    <button onclick="goBack()"> Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Get date:
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    </script>
+
+</fieldset>
+    </div>
+</body>
+</html>

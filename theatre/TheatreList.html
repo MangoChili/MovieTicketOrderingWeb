@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+    <!-- Ensure proper rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Using Bootstrap 4 CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <!--W3School CSS library-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../css/homepageTabs.css">
+    <link rel="stylesheet" href="../css/posterDescriptor.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+		table, th, td {
+   	 		border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+   	 		padding: 15px;
+		}
+
+		.checked {
+    		color: orange;
+		}
+
+		/****** Style Star Rating Widget *****/
+
+		.rating { 
+  			border: none;
+  			float: left;
+		}
+
+		.rating > input { display: none; } 
+		.rating > label:before { 
+ 			margin: 5px;
+ 			font-size: 1.25em;
+ 			font-family: FontAwesome;
+  			display: inline-block;
+ 			content: "\f005";
+		}
+
+		.rating > .half:before { 
+  			content: "\f089";
+  			position: absolute;
+		}
+
+		.rating > label { 
+  			color: #ddd; 
+ 			float: right; 
+		}
+
+		/***** CSS Magic to Highlight Stars on Hover *****/
+
+		.rating > input:checked ~ label, /* show gold star when clicked */
+		.rating:not(:checked) > label:hover, /* hover current star */
+		.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+		.rating > input:checked + label:hover, /* hover current star when changing rating */
+		.rating > input:checked ~ label:hover,
+		.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+		.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+		
+	</style>
+	
+</head>
+
+<body class="w3-light-grey">
+
+<!--Navigation bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="../movie/movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+        <a href="TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
+
+	<!--Page content -->
+	<div class="w3-content w3-padding-64" style="max-width:2000px;margin-top:46px">
+
+		<h1><b> Theatre List</b></h1>
+		<div class="w3-container">
+			<table style="width:100%">
+				<col width="200">
+				<col width="430">
+
+				<tr>
+					<td align="middle">
+						<div>
+                            <img src=http://www.free-icons-download.net/images/curved-crescent-moon-icon-38703.png width="150" height="150"><br>
+                        </div>
+					
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+					</td>
+
+					<td>
+                        <p><b>Rate this theatre:</b></p>
+							<div class="rating">
+                                <input type="radio" id="star5m" name="rating" value="5" /><label class = "full" for="star5m" title="Verry good - 5 stars"></label>
+                                <input type="radio" id="star4halfm" name="rating" value="4 and a half" /><label class="half" for="star4halfm" title="Verry Good - 4.5 stars"></label>
+                                <input type="radio" id="star4m" name="rating" value="4" /><label class = "full" for="star4m" title="Good - 4 stars"></label>
+                                <input type="radio" id="star3halfm" name="rating" value="3 and a half" /><label class="half" for="star3halfm" title="Good - 3.5 stars"></label>
+                                <input type="radio" id="star3m" name="rating" value="3" /><label class = "full" for="star3m" title="Average - 3 stars"></label>
+                                <input type="radio" id="star2halfm" name="rating" value="2 and a half" /><label class="half" for="star2halfm" title="Average - 2.5 stars"></label>
+                                <input type="radio" id="star2m" name="rating" value="2" /><label class = "full" for="star2m" title="Bad - 2 stars"></label>
+                                <input type="radio" id="star1halfm" name="rating" value="1 and a half" /><label class="half" for="star1halfm" title="Bad - 1.5 stars"></label>
+                                <input type="radio" id="star1m" name="rating" value="1" /><label class = "full" for="star1m" title="Verry Bad - 1 star"></label>
+                                <input type="radio" id="starhalfm" name="rating" value="half" /><label class="half" for="starhalfm" title="Verry Bad - 0.5 stars"></label>
+							</div>
+                        <br><br><br>
+						<div><b>Name: </b>Moon Theatre<br></div>
+						<div><b>Address: </b>123 Creative Hway, Winnipeg MB, R2M 3J1<br></div>
+						<div><b>Phone: </b><img src=http://www.iconarchive.com/download/i78241/igh0zt/ios7-style-metro-ui/MetroUI-Other-Phone-Alt.ico width="20" height="20">(204)-666-6666</div>
+                        <br>
+                        <a href="#moonSchedule" class="btn btn-primary" data-toggle="collapse">
+                            Currently playing movie</a>
+
+					</td>
+					<td>
+						<div id="googleMap1" style="width:100%;height:300px;"></div>
+					</td>
+
+				</tr>
+
+			</table>
+
+			<!--This place is hidden to show the list of movies according to the theater-->
+			<div id="moonSchedule" class="collapse">
+
+				<!--List of movie is here-->
+                <!--Movie List-->
+                <div class="w3-row-padding w3-padding-16">
+                    <!--First grid-->
+                    <!--First movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/murderPage.html">
+                                <img src="../poster/Murder-on-the-Orient-Express-New-Film-Poster.jpg"
+                                     alt="murderPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey w3-padding" style='display:block; height: 250px'>
+                            <p align="left"><h3>Murder on the Orient Express</h3></p>
+                            <p align="left">Release: Nov 10</p>
+                            <p align="left">Genre: Adaptation/Mystery</p>
+                            <p align="left">Runtime: 114 mins</p>
+                        </div>
+
+                        <a href="#murderSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="murderSchedule" class="collapse">
+                            <h3>
+                                Please select and time:
+                            </h3>
+                            <a href="../confirmPayment/confirmMDO13M.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmMDO19M.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--Second movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/geostormPage.html">
+                                <img src="../poster/geostormPoster.jpg"
+                                     alt="geostormPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Geostorm</h3></p>
+                            <p align="left">Release: Oct 27</p>
+                            <p align="left">Genre: Action/Sci-Fi</p>
+                            <p align="left">Runtime: 100 mins</p>
+                        </div>
+
+                        <a href="#geoStormSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="geoStormSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmG13M.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmG19M.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+                    <!--Third movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/thorPage.html">
+                                <img src="../poster/thor-ragnarok-poster.jpg"
+                                     alt="thorPoster"
+                                     class="w3-round"
+                                     style="width:88%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Thor: Ragnarok</h3></p>
+                            <p align="left">Release: Nov 3</p>
+                            <p align="left">Genre: Action/Adventure</p>
+                            <p align="left">Runtime: 130 mins</p>
+                        </div>
+
+                        <a href="#thorRagSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="thorRagSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmT13M.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmT19M.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+                </div>
+			</div>
+
+			<table style="width:100%">
+				<col width="200">
+				<col width="430">
+
+				<tr>
+					<td align="middle">
+						<div>
+							<img src=data:image/jpeg;base64,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 width="150" height="150"><br>
+                        </div>
+					
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star "></span>
+					</td>
+
+					<td>
+                        <p><b>Rate this theatre:</b></p>
+							<div class="rating">
+                                <input type="radio" id="star5s" name="rating" value="5" /><label class = "full" for="star5s" title="Verry good - 5 stars"></label>
+                                <input type="radio" id="star4halfs" name="rating" value="4 and a half" /><label class="half" for="star4halfs" title="Verry Good - 4.5 stars"></label>
+                                <input type="radio" id="star4s" name="rating" value="4" /><label class = "full" for="star4s" title="Good - 4 stars"></label>
+                                <input type="radio" id="star3halfs" name="rating" value="3 and a half" /><label class="half" for="star3halfs" title="Good - 3.5 stars"></label>
+                                <input type="radio" id="star3s" name="rating" value="3" /><label class = "full" for="star3s" title="Average - 3 stars"></label>
+                                <input type="radio" id="star2halfs" name="rating" value="2 and a half" /><label class="half" for="star2halfs" title="Average - 2.5 stars"></label>
+                                <input type="radio" id="star2s" name="rating" value="2" /><label class = "full" for="star2s" title="Bad - 2 stars"></label>
+                                <input type="radio" id="star1halfs" name="rating" value="1 and a half" /><label class="half" for="star1halfs" title="Bad - 1.5 stars"></label>
+                                <input type="radio" id="star1s" name="rating" value="1" /><label class = "full" for="star1s" title="Verry Bad - 1 star"></label>
+                                <input type="radio" id="starhalfs" name="rating" value="half" /><label class="half" for="starhalfs" title="Verry Bad - 0.5 stars"></label>
+
+							</div>
+                        <br><br><br>
+						<div><b>Name: </b>Star Theatre<br></div>
+						<div><b>Address: </b>88 St.Mary Road, Winnipeg MB, R3T 2K3<br></div>
+						<div><b>Phone: </b><img src=http://www.iconarchive.com/download/i78241/igh0zt/ios7-style-metro-ui/MetroUI-Other-Phone-Alt.ico width="20" height="20">(204)-123-1234</div>
+                        <br>
+                        <a href="#starSchedule" class="btn btn-primary" data-toggle="collapse">
+                            Currently playing movie</a>
+
+					</td>
+					<td>
+						<div id="googleMap2" style="width:100%;height:300px;"></div>
+					</td>
+
+				</tr>
+
+			</table>
+
+            <!--This place is hidden to show the list of movies according to the theater-->
+            <div id="starSchedule" class="collapse">
+
+
+                <!--List of movie is here-->
+                <!--Movie List-->
+                <div class="w3-row-padding w3-padding-16">
+                    <!--First grid-->
+                    <!--First movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/murderPage.html">
+                                <img src="../poster/Murder-on-the-Orient-Express-New-Film-Poster.jpg"
+                                     alt="murderPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey w3-padding" style='display:block; height: 250px'>
+                            <p align="left"><h3>Murder on the Orient Express</h3></p>
+                            <p align="left">Release: Nov 10</p>
+                            <p align="left">Genre: Adaptation/Mystery</p>
+                            <p align="left">Runtime: 114 mins</p>
+                        </div>
+
+                        <a href="#murderStarSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="murderStarSchedule" class="collapse">
+                            <h3>
+                                Please select and time:
+                            </h3>
+                            <a href="../confirmPayment/confirmMDO13S.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmMDO19S.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--Second movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/geostormPage.html">
+                                <img src="../poster/geostormPoster.jpg"
+                                     alt="geostormPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Geostorm</h3></p>
+                            <p align="left">Release: Oct 27</p>
+                            <p align="left">Genre: Action/Sci-Fi</p>
+                            <p align="left">Runtime: 100 mins</p>
+                        </div>
+
+                        <a href="#geoStormStarSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="geoStormStarSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmG13S.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmG19S.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+                    <!--Third movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/thorPage.html">
+                                <img src="../poster/thor-ragnarok-poster.jpg"
+                                     alt="thorPoster"
+                                     class="w3-round"
+                                     style="width:88%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Thor: Ragnarok</h3></p>
+                            <p align="left">Release: Nov 3</p>
+                            <p align="left">Genre: Action/Adventure</p>
+                            <p align="left">Runtime: 130 mins</p>
+                        </div>
+
+                        <a href="#thorRagStarSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="thorRagStarSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmT13S.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmT19S.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+			<table style="width:100%">
+				<col width="200">
+				<col width="430">
+
+				<tr>
+					<td align="middle">
+						<div>
+                            <img src=http://icons.iconarchive.com/icons/succodesign/love-is-in-the-web/512/heart-icon.png width="150" height="150"><br>
+                        </div>
+					
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star "></span>
+						<span class="fa fa-star "></span>
+					</td>
+
+					<td>
+                        <p><b>Rate this theatre:</b></p>
+							<div class="rating">
+								<input type="radio" id="star5l" name="rating" value="5" /><label class = "full" for="star5l" title="Verry good - 5 stars"></label>
+								<input type="radio" id="star4halfl" name="rating" value="4 and a half" /><label class="half" for="star4halfl" title="Verry Good - 4.5 stars"></label>
+								<input type="radio" id="star4l" name="rating" value="4" /><label class = "full" for="star4l" title="Good - 4 stars"></label>
+								<input type="radio" id="star3halfl" name="rating" value="3 and a half" /><label class="half" for="star3halfl" title="Good - 3.5 stars"></label>
+								<input type="radio" id="star3l" name="rating" value="3" /><label class = "full" for="star3l" title="Average - 3 stars"></label>
+								<input type="radio" id="star2halfl" name="rating" value="2 and a half" /><label class="half" for="star2halfl" title="Average - 2.5 stars"></label>
+								<input type="radio" id="star2l" name="rating" value="2" /><label class = "full" for="star2l" title="Bad - 2 stars"></label>
+								<input type="radio" id="star1halfl" name="rating" value="1 and a half" /><label class="half" for="star1halfl" title="Bad - 1.5 stars"></label>
+								<input type="radio" id="star1l" name="rating" value="1" /><label class = "full" for="star1l" title="Verry Bad - 1 star"></label>
+								<input type="radio" id="starhalfl" name="rating" value="half" /><label class="half" for="starhalfl" title="Verry Bad - 0.5 stars"></label>
+
+							</div>
+                        <br><br><br>
+						<div><b>Name: </b>Love Theatre<br></div>
+						<div><b>Address: </b>15 St.Jame Street, Winnipeg MB, R5D 5P8<br></div>
+						<div><b>Phone: </b><img src=http://www.iconarchive.com/download/i78241/igh0zt/ios7-style-metro-ui/MetroUI-Other-Phone-Alt.ico width="20" height="20">(204)-412-4231</div>
+                        <br>
+                        <a href="#loveSchedule" class="btn btn-primary" data-toggle="collapse">
+                            Currently playing movie</a>
+
+					</td>
+					<td>
+						<div id="googleMap3" style="width:100%;height:300px;"></div>
+					</td>
+
+				</tr>
+
+			</table>
+            <!--This place is hidden to show the list of movies according to the theater-->
+            <div id="loveSchedule" class="collapse">
+
+
+                <!--List of movie is here-->
+                <!--Movie List-->
+                <div class="w3-row-padding w3-padding-16">
+                    <!--First grid-->
+                    <!--First movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/murderPage.html">
+                                <img src="../poster/Murder-on-the-Orient-Express-New-Film-Poster.jpg"
+                                     alt="murderPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey w3-padding" style='display:block; height: 250px'>
+                            <p align="left"><h3>Murder on the Orient Express</h3></p>
+                            <p align="left">Release: Nov 10</p>
+                            <p align="left">Genre: Adaptation/Mystery</p>
+                            <p align="left">Runtime: 114 mins</p>
+                        </div>
+
+                        <a href="#murderLoveSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="murderLoveSchedule" class="collapse">
+                            <h3>
+                                Please select and time:
+                            </h3>
+                            <a href="../confirmPayment/confirmMDO13L.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmMDO19L.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--Second movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/geostormPage.html">
+                                <img src="../poster/geostormPoster.jpg"
+                                     alt="geostormPoster"
+                                     class="w3-round"
+                                     style="width:85%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+                            </a>
+                        </div>
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Geostorm</h3></p>
+                            <p align="left">Release: Oct 27</p>
+                            <p align="left">Genre: Action/Sci-Fi</p>
+                            <p align="left">Runtime: 100 mins</p>
+                        </div>
+
+                        <a href="#geoStormLoveSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="geoStormLoveSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmG13L.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmG19L.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+
+                    <!--Third movie-->
+                    <div class="w3-third w3-container w3-margin-bottom">
+                        <div class="img__wrap" >
+                            <a href="../movie/thorPage.html">
+                                <img src="../poster/thor-ragnarok-poster.jpg"
+                                     alt="thorPoster"
+                                     class="w3-round"
+                                     style="width:88%">
+                                <span class="img__description" style="vertical-align: middle;">More info</span>
+
+                            </a>
+                        </div>
+
+                        <!--Short description of first movie-->
+                        <div class="w3-container w3-blue-grey" style='display:block; height: 250px'>
+                            <p align="left"><h3>Thor: Ragnarok</h3></p>
+                            <p align="left">Release: Nov 3</p>
+                            <p align="left">Genre: Action/Adventure</p>
+                            <p align="left">Runtime: 130 mins</p>
+                        </div>
+
+                        <a href="#thorRagLoveSchedule" class="btn btn-success" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="thorRagLoveSchedule" class="collapse">
+                            <h3>
+                                Please select the time:
+                            </h3>
+                            <a href="../confirmPayment/confirmT13L.html" class="btn btn-warning">13:00</a>
+                            <a href="../confirmPayment/confirmT19L.html" class="btn btn-warning">19:00</a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+		</div>
+    </div>
+
+	<script>
+		function myMap() {
+		  var mapOptions1 = {
+			center: new google.maps.LatLng(49.8951,-97.2284),
+			zoom:15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  var mapOptions2 = {
+			center: new google.maps.LatLng(49.7951,-97.1284),
+			zoom:15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  var mapOptions3 = {
+			center: new google.maps.LatLng(49.7951,-97.3284),
+			zoom:15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  var map1 = new google.maps.Map(document.getElementById("googleMap1"),mapOptions1);
+		  var map2 = new google.maps.Map(document.getElementById("googleMap2"),mapOptions2);
+		  var map3 = new google.maps.Map(document.getElementById("googleMap3"),mapOptions3);
+		}
+		</script>
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAec8C6-7hxB68458U_Yatf11yjRrZLFZo&callback=myMap"></script>
+
+</body>
+</html>

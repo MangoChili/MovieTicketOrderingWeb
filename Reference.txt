@@ -1,0 +1,13 @@
+http://netflixtheme.wpvideosubscriptions.com/videos/action-adventure/x-men-days-of-future-past/
+
+CSS library:
+https://codepen.io/jamesbarnett/pen/vlpkh
+
+Lightbox effect video player:
+http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/#prettyPhoto
+
+Star rating function
+http://plugins.krajee.com/star-rating
+
+Information:
+http://www.imdb.com/title/tt1396484/?ref_=nv_sr_1

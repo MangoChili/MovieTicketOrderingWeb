@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <title>Movie ticket ordering website</title>
+    <meta charset="utf-8">
+    <!-- Ensure proper rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Using Bootstrap 4 CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+    <!-- CSS library -->
+    <link rel="stylesheet" href="../css/star-rating.min.css" media="all" type="text/css">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" media="screen" type="text/css">
+
+
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Theme-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../themes/krajee-fa/theme.min.css" media="all" type="text/css">
+
+
+    <!--Fancybox -->
+    <script src="../js/jquery.fancybox.min.js" type="text/javascript"></script>
+
+    <!-- Star rating -->
+    <script src="../js/star-rating.min.js" type="text/javascript"></script>
+    <script src="../themes/krajee-fa/theme.min.js" type="text/javascript"></script>
+
+</head>
+
+<body class="w3-black">
+<!--Navigation bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+        <a href="../theatre/TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
+
+<!--Main movie detail-->
+
+
+<div class="w3-content" style="max-width:2500px; margin-top:46px">
+
+    <div class="w3-display-container w3-image" style="object-fit: contain">
+        <img src="../poster/GeoStorm.jpg"
+             alt="geoStormPoster" style="width:100%;min-width:1000px">
+
+        <div class="w3-padding w3-display-topleft" style="width:50%">
+
+            <h1>Geostorm (2017)</h1>
+            <p>When the network of satellites designed to control the global climate starts to attack Earth, it's a race against the clock to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.</p>
+
+            <p>Stars: Gerard Butler, Jim Sturgess, Abbie Cornish </p>
+            <p>Director: Dean Devlin</p>
+            <p>Genre: Action, Sci-Fi, Thriller</p>
+            <p>Length: 1h 49min</p>
+
+            <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/Qz8cjvKJLuw" class="btn btn-warning" role="button">
+                Watch trailer
+            </a>
+
+        </div>
+
+        <div class="w3-padding w3-display-bottomleft">
+            <!--Star rating implementation-->
+            <h2>Rate Movie !</h2>
+            <!--<label for="input-1-ltr-star-xs" class="control-label">Rate Movie !</label>-->
+            <input id="input-2-ltr-star-sm" name="input-2-ltr-star-sm" class="kv-ltr-theme-fa-star rating-loading" value="0" dir="ltr" data-size="sm">
+
+            <script >
+                jQuery(document).ready(function(){
+                    $('.kv-ltr-theme-fa-star').rating({
+                        hoverOnClear: false,
+                        theme: "krajee-fa",
+                        step: '1',
+                        starCaptions: {1: 'Poor', 2: 'Meh', 3: 'Ok', 4: 'Good', 5: 'Awesome'},
+                        starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
+                    });
+                });
+            </script>
+        </div>
+
+    </div>
+
+    <br>
+    <!--Other comment function-->
+
+    <div class="w3-container">
+        <!--<div class="w3-row w3-padding-64 w3-text-white">-->
+        <!--<div class="w3-col sm6 w3-padding-large w3-display-left w3-hide-small">-->
+
+
+        <h2>Your comment: </h2>
+        <form>
+            <textarea id="words" rows="5" width="30%">Enter comment</textarea>
+            <input class="btn btn-info" onclick="getwords()" value="Post comment" /> <br>
+            <p id="para"></p>
+        </form>
+
+        <script type="text/javascript">
+            function getwords() {
+                var text;
+                text = words.value;
+                document.getElementById("para").innerHTML += '<p>'+text;
+                document.getElementById("words").value = "";
+
+            }
+        </script>
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+
+    <!--End of specific movie page-->
+</div>
+
+</body>
+</html>

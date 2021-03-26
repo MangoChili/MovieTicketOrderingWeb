@@ -1,0 +1,6 @@
+var indexTGs = {
+    "ad-normal-hot":
+        "<div class=\"tc  mb15\"" +
+        " style=\"cursor:pointer;\">\n<iframe  src=\"http://static1.mtime.cn/tg/16/2016_index_news_banner_1200x90.html\" width=\"1200\" height=\"90\" frameborder=\"0\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe>\n</div>",
+    "ad-normal-mall":"","ad-normal-recommend":
+        "<div class=\"tc  mb15\" style=\"cursor:pointer;\">\n<iframe  src=\"http://static1.mtime.cn/tg/2011/2016_index_mtimejx_banner_1200x90.html\" width=\"1200\" height=\"90\" frameborder=\"0\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe>\n</div>\n","ad-normal-funny":"","ad-normal-ft":"<div class=\"tc  mb15\" style=\"padding-bottom:15px;\">\n<iframe  src=\"http://static1.mtime.cn/tg/2011/2016_index_footer_banner_1200x90.html.html\" width=\"1200\" height=\"90\" frameborder=\"0\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe>\n</div>\n"};

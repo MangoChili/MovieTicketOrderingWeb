@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+	<!-- Ensure proper rendering -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--Using Bootstrap 4 CDN-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <!--W3School CSS library-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+	<!--Font-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body class="w3-black">
+	<!--Navigation bar-->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+            <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="../movie/movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+            <a href="../theatre/TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+        </div>
+    </div>
+
+<div class="w3-content w3-padding-large" style="max-width:2000px;margin-top:46px">
+	<h1> Movie List</h1>
+
+    <!--First movie in the list-->
+	<div class="w3-row w3-dark-grey w3-padding-64 text-white rounded" >
+		<div class="w3-col m3 w3-center">
+            <div class="w3-container">
+                <div class="w3-display-container">
+                    <img src="../poster/Murder-on-the-Orient-Express-New-Film-Poster.jpg"
+                         alt="murderOrientExpressPostal"
+                         class="w3-round"
+                         style="width:100%;max-width:300px">
+                </div>
+            </div>
+
+		</div>
+
+        <div class="w3-col m3 w3-center">
+            <div class="w3-container">
+                <div class="w3-display-container">
+                    <h3>Murder on the Orient Express</h3>
+                    <p>Running time: 1h 54min</p>
+                    <p>Genre: Crime, Drama, Mystery</p>
+                    <a href="murderPage.html" class="btn btn-info">More info</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Buying ticket section-->
+        <!--First movie in the list-->
+        <div class="w3-col m6 w3-center">
+            <div class="w3-container">
+                <div class="w3-display-container">
+                    <h3>Buy ticket: </h3>
+
+                    <!--<form action="/action_page.php">-->
+                        <!--Select date:-->
+                        <!--<input type="date" name="pickDate">-->
+                    <!--</form>-->
+
+                    <br>
+
+                    <a href="#murderSchedule" class="btn btn-primary" data-toggle="collapse">
+                        Showtime</a>
+
+                    <div id="murderSchedule" class="collapse">
+                        <h3>
+                            Please select the theater and time:
+                        </h3>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#murderSchedule" href="#moonTimeMurder">
+                                    Moon Theater
+                                </a>
+                            </div>
+                            <div id="moonTimeMurder" class="collapse">
+                                <div class="card-body text-dark">
+                                    <a href="../confirmPayment/confirmMDO13M.html" class="btn btn-warning">13:00</a>
+                                    <a href="../confirmPayment/confirmMDO19M.html" class="btn btn-warning">19:00</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#murderSchedule" href="#starTimeMurder">
+                                    Star Theater
+                                </a>
+                            </div>
+                            <div id="starTimeMurder" class="collapse">
+                                <div class="card-body text-dark">
+                                    <a href="../confirmPayment/confirmMDO13S.html" class="btn btn-warning">13:00</a>
+                                    <a href="../confirmPayment/confirmMDO19S.html" class="btn btn-warning">19:00</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#murderSchedule" href="#loveTimeMurder">
+                                    Love Theater
+                                </a>
+                            </div>
+                            <div id="loveTimeMurder" class="collapse">
+                                <div class="card-body text-dark">
+                                    <a href="../confirmPayment/confirmMDO13L.html" class="btn btn-warning">13:00</a>
+                                    <a href="../confirmPayment/confirmMDO19L.html" class="btn btn-warning">19:00</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+        <!--Second movie in the list-->
+        <div class="w3-row w3-dark-grey w3-padding-64 text-white rounded">
+            <div class="w3-col m3 w3-center">
+                <div class="w3-container">
+                    <div class="w3-display-container">
+                        <img src="../poster/geostormPoster.jpg"
+                             class="w3-round"
+                             style="width:100%;max-width:300px">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w3-col m3 w3-center">
+                <div class="w3-container">
+                    <div class="w3-display-container">
+                        <h3>Geostorm</h3>
+                        <p>Running time: 1h49m </p>
+                        <p>Genre: Action, Sci-Fi, Thriller</p>
+                        <a href="geostormPage.html" class="btn btn-info">More info</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Buying ticket section-->
+            <div class="w3-col m6 w3-center">
+                <div class="w3-container">
+                    <div class="w3-display-container">
+                        <h3>Buy ticket: </h3>
+
+                        <!--<form action="/action_page.php">-->
+                            <!--Select date:-->
+                            <!--<input type="date" name="pickDate">-->
+                        <!--</form>-->
+
+                        <br>
+
+                        <a href="#geoStormSchedule" class="btn btn-primary" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="geoStormSchedule" class="collapse">
+                            <h3>
+                                Please select the theater and time:
+                            </h3>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" data-parent="#geoStormSchedule" href="#moonTimeGeo">
+                                        Moon Theater
+                                    </a>
+                                </div>
+                                <div id="moonTimeGeo" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmG13M.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmG19M.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" data-parent="#geoStormSchedule" href="#starTimeGeo">
+                                        Star Theater
+                                    </a>
+                                </div>
+                                <div id="starTimeGeo" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmG13S.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmG19S.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" data-parent="#geoStormSchedule" href="#loveTimeGeo">
+                                        Love Theater
+                                    </a>
+                                </div>
+                                <div id="loveTimeGeo" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmG13L.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmG19L.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <br>
+
+        <!--Third movie in the list-->
+        <div class="w3-row w3-dark-grey w3-padding-64 text-white rounded">
+            <div class="w3-col m3 w3-center">
+                <div class="w3-container">
+                    <div class="w3-thumbnail">
+                        <img src="../poster/thor-ragnarok-poster.jpg"
+                             class="w3-round"
+                             style="width:100%;max-width:300px">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w3-col m3 w3-center">
+                <div class="w3-container">
+                    <div class="w3-display-container">
+                        <h3>Thor Ragnarok</h3>
+                        <p>Running time: 2h10min</p>
+                        <p>Genre: Action, Adventure, Comedy</p>
+                        <a href="thorPage.html" class="btn btn-info">More info</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Buying ticket section-->
+            <div class="w3-col m6 w3-center">
+                <div class="w3-container">
+                    <div class="w3-display-container">
+                        <h3>Buy ticket: </h3>
+
+                        <!--<form action="/action_page.php">-->
+                            <!--Select date:-->
+                            <!--<input type="date" name="pickDate">-->
+                        <!--</form>-->
+
+                        <br>
+
+                        <a href="#thorRagSchedule" class="btn btn-primary" data-toggle="collapse">
+                            Showtime</a>
+
+                        <div id="thorRagSchedule" class="collapse">
+                            <h3>
+                                Please select the theater and time:
+                            </h3>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" data-parent="#thorRagSchedule" href="#moonTimeThorRag">
+                                        Moon Theater
+                                    </a>
+                                </div>
+                                <div id="moonTimeThorRag" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmT13M.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmT19M.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" data-parent="#thorRagSchedule" href="#starTimeThorRag">
+                                        Star Theater
+                                    </a>
+                                </div>
+                                <div id="starTimeThorRag" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmT13S.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmT19S.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" data-parent="#thorRagSchedule" href="#loveTimeThorRag">
+                                        Love Theater
+                                    </a>
+                                </div>
+                                <div id="loveTimeThorRag" class="collapse">
+                                    <div class="card-body text-dark">
+                                        <a href="../confirmPayment/confirmT13L.html" class="btn btn-warning">13:00</a>
+                                        <a href="../confirmPayment/confirmT19L.html" class="btn btn-warning">19:00</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+	
+</body>
+</html>

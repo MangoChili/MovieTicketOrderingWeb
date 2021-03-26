@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    * {
+     box-sizing: border-box;
+    }
+
+    body {
+    margin: 0;
+    }
+
+    html, body {
+    height: 100%;
+  }
+  #tableContainer-1 {
+    height: 100%;
+    width: 100%;
+    display: table;
+  }
+  #tableContainer-2 {
+    vertical-align: middle;
+    display: table-cell;
+    height: 100%;
+  }
+  #myTable {
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!--Navigation bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="../movie/movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+        <a href="../theatre/TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
+	<!--Page content -->
+	<div class="w3-content w3-padding-64" style="max-width:2000px;margin-top:46px">
+
+      <div style="font-size:160%; text-align:center;"><b>Thank You For Your Purchase!</b></div>
+            <br>
+
+      <div id="tableContainer-1">
+        <div id="tableContainer-2">
+          <table id="myTable" border >
+            <tr>
+              <td>
+                <b>How to get your ticket:</b> <br>
+                Scan this bar code at the ticket pick-up kiosk <br>
+                or enter the ID number that is displayed below the bar code.
+              </td>
+              <td><img src=http://s3.amazonaws.com/entp-tender-production/assets/fdd2eb2150a92a233a6a821e68c5b7870d4cdeb6/serial_barcode_normal.png width="366" height="133"></td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

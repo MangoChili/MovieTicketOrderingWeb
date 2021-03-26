@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+    * {
+    box-sizing: border-box;
+    }
+
+body {
+    margin: 0;
+    }
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+  </style>
+
+    <script language="JavaScript">
+        function GetURLParameter(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        function getTotal()
+        {
+            var quantity=parseInt(GetURLParameter('quantity'));
+            var subTotal = quantity*10;
+            var total = subTotal*13/100+subTotal;
+            return total.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+
+<!--Navigation bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-padding w3-wide w3-card">
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="../movie/movieList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+        <a href="../theatre/TheatreList.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THEATER</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
+	<!--Page content -->
+	<div class="w3-content w3-padding-64" style="max-width:2000px;margin-top:46px">
+
+        <span><b>&emsp; Total Amount: </b>CAD</span>
+
+        <script>
+          document.write(getTotal());
+        </script>
+
+        <div class="row">
+          <div class="column">
+            <form action="ticket.html" method="POST">
+              <fieldset>
+              <legend><b>PAY WITH YOUR DEBIT OR CREDIT CARD:</b></legend>
+              <img src=https://us-east-1.tchyn.io/snopes-production/uploads/images/crime/graphics/cardhead.jpg width="60" height="20"><br>
+              Cardholder Name:<br>
+             <input type="text" name="Cardholder Name" size="40"><br>
+              Card Number:<br>
+             <input type="text" name="Card Number" size="40"><br>
+             Expiry Date(MMYY)<br>
+              <input type="text" name="Expiry Date" maxlength="4" size="10"><br>
+              Security Code<br>
+              <input type="text" name="Security Code" maxlength="3" size="10"><br>
+             <p style="font-size:60%; color:gray;">
+               <img src="data:image/png;base64,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" width="30" height="20">
+                CVV2 is the Visa term for the 3-digit security code<br>
+              on the back of the credit card(Visa and Mastercard).</p><br>
+              <input type="submit" value="PAY WITH YOUR DEBIT OR CREDIT CARD">
+              </fieldset>
+            </form>
+          </div>
+
+            <div class="column">
+
+              <form action="https://www.paypal.com/signin" method="POST">
+                <fieldset>
+                <legend><b>PAY WITH PAYPAL:</b></legend>
+                <img src=http://www.smallbiztechnology.com/wp-content/uploads/2012/07/paypal.jpg width="120" height="40">
+                <span><a href="https://www.paypal.com/ca/webapps/mpp/paypal-popup" target="_blank"> What is Paypal?</a></span><br><br>
+                <input type="submit" value="PAY WITH PAYPAL">
+                </fieldset>
+              </form>
+
+              <form action="http://interac.ca/en/interac-online-consumer.html" method="POST">
+                <fieldset>
+                <legend><b>PAY FROM YOUR BANK ACCOUNT:</b></legend>
+                <img src=https://www.dartstransit.com:8093/transit/Images/Interac_Online_Eng_vert_small_RGB.png width="100" height="127">
+                <span>Pay directly from your bank account using the INTERAC Online service</span><br><br>
+                <input type="submit" value="PAY FROM YOUR BANK ACCOUNT">
+                </fieldset>
+              </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

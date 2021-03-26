@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie ticket ordering website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {font-family: "Lato", sans-serif}.mySlides {display:none}
+	</style>
+</head>
+
+<body>
+
+<!--Navigation bar-->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOVIE</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TICKET</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      
+    </div>
+	</div>
+	<!--Page content -->
+	<div class="w3-content" style="max-width:2000px;margin-top:46px">
+		<!-- Automatic Slideshow Images -->
+		
+</div>
+<fieldset>
+    <legend><h>&emsp;<b><ins>Ticket Information Confirmation:</ins></b></h></legend>
+    Movie Name: Transformer-3D<br><br>
+    Day: 29/12/2018<br><br>
+    <form action="/action_page.php" method="POST">
+        Show Time: 
+        <select name="Show Time">
+                <option value="9:30">9:30</option>
+                <option value="13:00">13:00</option>
+                <option value="17:30">17:30</option>
+                <option value="19:00">19:00</option>
+        </select><br><br>
+        Theatre: 
+        <select name="Theatre" id="name">
+                <option value="Moon">Moon</option>
+                <option value="Sun">Sun</option>
+                <option value="Star">Star</option>
+        </select>
+        Address: 123 Creative Hway, Winnipeg MB, R5T2N8<br><br>
+        Quantity:  <input type="number" name="quantity" min="1" max"50"> Total Price: CAD 10.50<br><br>
+        <input type="submit" value="Back"> &emsp;<input type="submit" value="Confirm and make payment">
+
+    </form>
+
+</fieldset>
+
+</body>
+</html>
